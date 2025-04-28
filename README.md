@@ -34,6 +34,8 @@ deployment:
   url: "https://lovable.dev/projects/ec77610c-f9cd-4d32-a900-b46e0ee098c5"
 ---
 
+![recursive-shack-system](https://github.com/user-attachments/assets/24e28c2b-3b9b-4773-973a-1669cd0b738b)
+
 # Shacks, Not Cathedrals
 
 A tech-noir themed personal blog exploring system design, teaching, and resilient architecture through a cyberpunk lens. Built with React, TypeScript, and Tailwind CSS, featuring custom glitch effects and dark theme optimization.
