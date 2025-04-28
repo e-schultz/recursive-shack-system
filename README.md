@@ -1,73 +1,134 @@
-# Welcome to your Lovable project
 
-## Project info
+---
+title: "Shacks, Not Cathedrals"
+description: "A tech-noir themed personal blog exploring system design, teaching, and resilient architecture through a cyberpunk lens"
+live_demo: "https://lovable.dev/projects/ec77610c-f9cd-4d32-a900-b46e0ee098c5"
+tech_stack:
+  - Vite
+  - TypeScript
+  - React
+  - Tailwind CSS
+  - shadcn-ui
+features:
+  - Cyberpunk/tech-noir design system
+  - Custom glitch text effects
+  - Dark theme optimized
+  - Blog navigation
+  - Tech stack showcase
+fonts:
+  - JetBrains Mono
+  - Space Mono
+  - Inter
+date_created: "2025-04-28"
+last_updated: "2025-04-28"
+author: "Original Author"
+status: "active"
+tags:
+  - blog
+  - tech-noir
+  - cyberpunk
+  - personal-site
+  - typescript
+deployment:
+  platform: "Lovable"
+  url: "https://lovable.dev/projects/ec77610c-f9cd-4d32-a900-b46e0ee098c5"
+---
 
-**URL**: https://lovable.dev/projects/ec77610c-f9cd-4d32-a900-b46e0ee098c5
+# Shacks, Not Cathedrals
 
-## How can I edit this code?
+A tech-noir themed personal blog exploring system design, teaching, and resilient architecture through a cyberpunk lens. Built with React, TypeScript, and Tailwind CSS, featuring custom glitch effects and dark theme optimization.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- 🌗 **Tech-noir Design System**: Custom dark theme with cyberpunk aesthetics
+- ⚡ **Glitch Effects**: Custom text animations and visual effects
+- 🎨 **Typography**: Premium font selection with JetBrains Mono and Space Mono
+- 📱 **Responsive Design**: Optimized for all device sizes
+- 🧭 **Blog Navigation**: Intuitive content structure
+- 🛠️ **Tech Stack Showcase**: Visual representation of technologies used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ec77610c-f9cd-4d32-a900-b46e0ee098c5) and start prompting.
+## Technical Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Framework**: React with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with shadcn-ui components
+- **Typography**: JetBrains Mono, Space Mono, Inter
+- **Animations**: Custom glitch effects
+- **UI Components**: Radix UI primitives
 
-**Use your preferred IDE**
+## Project Setup
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Using Lovable
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Visit the [Lovable Project](https://lovable.dev/projects/ec77610c-f9cd-4d32-a900-b46e0ee098c5) to start editing through the AI interface.
 
-Follow these steps:
+### Local Development
+
+Requirements:
+- Node.js & npm - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
+# Install dependencies
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Alternative Editing Methods
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. **Direct GitHub Editing**:
+   - Navigate to desired files
+   - Click "Edit" (pencil icon)
+   - Make changes and commit
 
-**Use GitHub Codespaces**
+2. **GitHub Codespaces**:
+   - Click "Code" button
+   - Select "Codespaces"
+   - Create new codespace
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Deployment
 
-## What technologies are used for this project?
+1. Open [Lovable](https://lovable.dev/projects/ec77610c-f9cd-4d32-a900-b46e0ee098c5)
+2. Click Share -> Publish
 
-This project is built with:
+### Custom Domain Setup
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+To connect your domain:
+1. Navigate to Project > Settings > Domains
+2. Click Connect Domain
+3. Follow the [custom domain setup guide](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
 
-## How can I deploy this project?
+Note: Custom domain connection requires a paid Lovable plan.
 
-Simply open [Lovable](https://lovable.dev/projects/ec77610c-f9cd-4d32-a900-b46e0ee098c5) and click on Share -> Publish.
+## Design System
 
-## Can I connect a custom domain to my Lovable project?
+### Colors
+- Background: `#0a0a0a`
+- Accent: `#5DF5F5`
+- Secondary: `#F5DF4D`
+- Text: `#F5F5F5`
 
-Yes, you can!
+### Typography
+- Headers: Space Mono
+- Code: JetBrains Mono
+- Body: Inter
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Contributing
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
+
+## License
+
+This project is open source and available under the MIT license.
+
