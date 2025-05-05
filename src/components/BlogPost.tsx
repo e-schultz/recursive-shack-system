@@ -1,4 +1,3 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import SectionDivider from './SectionDivider';
@@ -32,7 +31,7 @@ const BlogPost = ({ title, date, author, content }: BlogPostProps) => {
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   const { currentTheme } = useTheme();
   
-  // Set up refs for each section
+  // Set up refs for each section and expose them to TraceMode
   useEffect(() => {
     content.forEach(section => {
       const element = document.getElementById(section.id);

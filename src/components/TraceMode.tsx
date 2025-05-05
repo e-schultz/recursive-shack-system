@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ChevronDown, ChevronUp, Maximize2, Minimize2 } from 'lucide-react';
@@ -32,7 +33,20 @@ const TraceMode = ({
   const currentSources = sources && sources.length > 0 ? sources : previousSectionSources || [];
   const currentSectionId = sources && sources.length > 0 ? sectionId : previousSectionId || '';
   
-  // If we have no current sources and no previous sources, render the placeholder
+  // Track section positions in the document
+  const [sectionPositions, setSectionPositions] = useState<{id: string, position: number}[]>([]);
+
+  useEffect(() => {
+    // Find all section elements and record their positions
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const positions = sections.map(section => ({
+      id: section.id,
+      position: section.getBoundingClientRect().top + window.scrollY
+    }));
+    setSectionPositions(positions);
+  }, [sources, previousSectionSources]);
+
+  // If we have no current sources and no previous sources, render the placeholder timeline
   if (!currentSources || currentSources.length === 0) {
     return (
       <div className="fixed inset-x-0 bottom-0 z-30 border-t border-tech-grey h-1">
@@ -56,6 +70,18 @@ const TraceMode = ({
 
   const toggleHeight = () => {
     setIsFullHeight(!isFullHeight);
+  };
+
+  // Scroll to a specific section when a connection dot is clicked
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // Scroll to section with offset for the navigation bar
+      window.scrollTo({ 
+        top: element.offsetTop - 80, 
+        behavior: 'smooth' 
+      });
+    }
   };
 
   return (
@@ -107,7 +133,42 @@ const TraceMode = ({
         </div>
       </div>
       
-      {/* Main Content Area - Now Resizable */}
+      {/* Interactive Connection Timeline */}
+      <div className="bg-tech-black px-4 py-2 border-b border-tech-grey">
+        <div className="flex items-center gap-2">
+          <div className="text-xs text-tech-grey font-mono">CONTENT MAP:</div>
+          <div className="h-0.5 flex-1 bg-tech-grey relative">
+            {sectionPositions.map((section, index) => {
+              // Calculate horizontal position based on section's relative position in the document
+              const docHeight = document.documentElement.scrollHeight;
+              const position = section.position / docHeight * 100;
+              const hasSource = sources.some(source => source.title.includes(section.id));
+              
+              return (
+                <button
+                  key={index}
+                  className={`absolute h-2 w-2 rounded-full -translate-y-[3px] cursor-pointer transform hover:scale-125 transition-transform`}
+                  style={{ 
+                    left: `${position}%`,
+                    backgroundColor: hasSource ? '#1EAEDB' : '#FEF7CD' 
+                  }}
+                  title={section.id}
+                  onClick={() => {
+                    scrollToSection(section.id);
+                    // If there's a source related to this section, expand it
+                    const sourceIndex = sources.findIndex(source => source.title.includes(section.id));
+                    if (sourceIndex >= 0) {
+                      setExpandedSource(sourceIndex);
+                    }
+                  }}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      
+      {/* Main Content Area - Resizable */}
       {!isFullHeight ? (
         <ResizablePanelGroup direction="vertical">
           <ResizablePanel defaultSize={25} minSize={15} maxSize={60}>
@@ -123,9 +184,9 @@ const TraceMode = ({
                           {currentSources.length} SOURCE{currentSources.length !== 1 ? 'S' : ''} FOUND
                         </div>
                         <div className="flex items-center gap-2 mb-4">
-                          <div className="h-2 w-2 bg-tech-cyan rounded-full"></div>
+                          <div className="h-2 w-2 bg-tech-cyan rounded-full" title="Primary sources"></div>
                           <div className="h-0.5 flex-1 bg-tech-grey"></div>
-                          <div className="h-2 w-2 bg-tech-yellow rounded-full"></div>
+                          <div className="h-2 w-2 bg-tech-yellow rounded-full" title="Reference points"></div>
                         </div>
                       </div>
 
@@ -213,9 +274,9 @@ const TraceMode = ({
                       {currentSources.length} SOURCE{currentSources.length !== 1 ? 'S' : ''} FOUND
                     </div>
                     <div className="flex items-center gap-2 mb-4">
-                      <div className="h-2 w-2 bg-tech-cyan rounded-full"></div>
+                      <div className="h-2 w-2 bg-tech-cyan rounded-full" title="Primary sources"></div>
                       <div className="h-0.5 flex-1 bg-tech-grey"></div>
-                      <div className="h-2 w-2 bg-tech-yellow rounded-full"></div>
+                      <div className="h-2 w-2 bg-tech-yellow rounded-full" title="Reference points"></div>
                     </div>
                   </div>
 
