@@ -27,6 +27,7 @@ interface BlogPostProps {
 
 const BlogPost = ({ title, date, author, content }: BlogPostProps) => {
   const [activeSection, setActiveSection] = useState(content[0]?.id || '');
+  const [previousActiveSection, setPreviousActiveSection] = useState('');
   const [showTraceMode, setShowTraceMode] = useState(false);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   const { currentTheme } = useTheme();
@@ -59,6 +60,11 @@ const BlogPost = ({ title, date, author, content }: BlogPostProps) => {
         }
       }
       
+      // Store the previous active section when it changes
+      if (currentSection !== activeSection) {
+        setPreviousActiveSection(activeSection);
+      }
+      
       setActiveSection(currentSection);
     };
     
@@ -68,7 +74,7 @@ const BlogPost = ({ title, date, author, content }: BlogPostProps) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [content]);
+  }, [content, activeSection]);
   
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -78,6 +84,7 @@ const BlogPost = ({ title, date, author, content }: BlogPostProps) => {
         top: element.offsetTop - 80, 
         behavior: 'smooth' 
       });
+      setPreviousActiveSection(activeSection);
       setActiveSection(sectionId);
     }
   };
@@ -96,6 +103,10 @@ const BlogPost = ({ title, date, author, content }: BlogPostProps) => {
 
   const getActiveSection = () => {
     return content.find(section => section.id === activeSection);
+  };
+
+  const getPreviousSection = () => {
+    return content.find(section => section.id === previousActiveSection);
   };
 
   return (
@@ -136,10 +147,12 @@ const BlogPost = ({ title, date, author, content }: BlogPostProps) => {
         </button>
 
         {/* Conditional Trace Mode Overlay */}
-        {showTraceMode && getActiveSection()?.sources && (
+        {showTraceMode && (
           <TraceMode 
             sources={getActiveSection()?.sources || []} 
             sectionId={activeSection}
+            previousSectionSources={getPreviousSection()?.sources || []}
+            previousSectionId={previousActiveSection}
           />
         )}
 
