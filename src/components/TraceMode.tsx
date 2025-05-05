@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Maximize2, Minimize2 } from 'lucide-react';
 
 interface SourceProps {
   title: string;
@@ -19,6 +19,7 @@ const TraceMode = ({ sources, sectionId }: TraceModeProps) => {
   const { currentTheme } = useTheme();
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [expandedSource, setExpandedSource] = useState<number | null>(null);
+  const [isFullHeight, setIsFullHeight] = useState(false);
   
   if (!sources || sources.length === 0) {
     return null;
@@ -32,8 +33,15 @@ const TraceMode = ({ sources, sectionId }: TraceModeProps) => {
     }
   };
 
+  const toggleHeight = () => {
+    setIsFullHeight(!isFullHeight);
+  };
+
   return (
-    <div className="fixed inset-0 z-30 overflow-hidden flex flex-col pt-16 pb-4 bg-black/80 backdrop-blur-sm">
+    <div 
+      className={`fixed inset-x-0 bottom-0 z-30 backdrop-blur-md bg-black/40 border-t border-tech-grey
+      ${isFullHeight ? 'h-screen pt-16 pb-4' : 'h-1/4'}`}
+    >
       {/* Dev Tools Header */}
       <div className="flex items-center justify-between px-4 py-2 bg-tech-black border-b border-tech-grey">
         <div className="flex items-center space-x-4">
@@ -61,8 +69,17 @@ const TraceMode = ({ sources, sectionId }: TraceModeProps) => {
             </button>
           </div>
         </div>
-        <div className="text-xs text-tech-grey font-mono">
-          INSPECTING::{sectionId}
+        <div className="flex items-center gap-4">
+          <div className="text-xs text-tech-grey font-mono">
+            INSPECTING::{sectionId}
+          </div>
+          <button 
+            onClick={toggleHeight} 
+            className="text-tech-grey hover:text-tech-cyan"
+            aria-label={isFullHeight ? "Minimize panel" : "Maximize panel"}
+          >
+            {isFullHeight ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+          </button>
         </div>
       </div>
       
