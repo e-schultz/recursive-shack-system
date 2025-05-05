@@ -22,7 +22,19 @@ const Index = () => {
             I didn't know the word "ontology" yet, but I was already trying to build one. In Turbo Pascal. With vibes.
           </p>
         </>
-      )
+      ),
+      sources: [
+        {
+          title: "BBS Memories and Early Internet Days",
+          excerpt: "For reasons, I want to recreate classic dial up BBS software Memories. I used Renegade, Oblivion, Telegaurd - a few others, but would always go back to Renegade. I'd use a hex editor on the exe to do customizations you couldn't do otherwise. Destructive editing for the win!",
+          origin: "Personal Journal, April 2025"
+        },
+        {
+          title: "My First Useful Programming Project",
+          excerpt: "The first real useful code I wrote was a utility for my BBS. Extract summaries from meta data at the top of txt files. I didn't want to zip them with a file_id.diz. \"It's a text file, it's stupid to zip it just to add a description\" said cranky grade school Evan.",
+          origin: "Twitter Thread, April 2023"
+        }
+      ]
     },
     {
       id: "why-i-build",
@@ -234,7 +246,14 @@ const Index = () => {
             That's the real engine behind FLOAT, behind floatctl, behind every system I touch.
           </p>
         </>
-      )
+      ),
+      sources: [
+        {
+          title: "I as a Cognitive Assist: Taming the Neurodivergent Firehose",
+          excerpt: "One of the first moments I saw real value in AI wasn't in writing code or generating content—it was in making sense of my own brain. For context: I'm hyperverbal autistic with ADHD. That means: When I have something to say, it comes out fast. One word becomes ten, ten become a hundred.",
+          origin: "LinkedIn Post, May 2025"
+        }
+      ]
     },
     {
       id: "utility-first-float",
@@ -299,7 +318,14 @@ const Index = () => {
             If you want alive, resilient, human systems that help people think better — that feel alive, that respond — let's talk.
           </p>
         </>
-      )
+      ),
+      sources: [
+        {
+          title: "My Life with a Stutter and Finding My Voice in Tech",
+          excerpt: "One of the ways stuttering impacted me in a positive way I think - is when I discovered online communities like BBS's, news groups, forums, etc. Being able to express myself by writing and not worry about getting teased over getting stuck on a word, or how I spoke.",
+          origin: "Personal Blog, March 2025"
+        }
+      ]
     },
     {
       id: "recursive-loop",
@@ -335,7 +361,19 @@ const Index = () => {
             </a>
           </div>
         </>
-      )
+      ),
+      sources: [
+        {
+          title: "BBS Memories and Early Internet Days",
+          excerpt: "Once I got access to the internet - I would try and balance my time on the net vs keeping my BBS accessible. My parents wouldn't let me get a 3rd phone line. I'd try and get as much information/txt files as I could - and then make them available on my BBS for people who didn't have access to the net yet.",
+          origin: "Personal Journal, April 2025"
+        },
+        {
+          title: "Finding My Voice Online",
+          excerpt: "I wasn't the awkward kid who could barely say his own name, I was some kid behind a h4ndl3 on a forum being helpful and chatty and a wealth of information. Going online, it's like I turned into the more helpful, friendly version of myself that I wish I could be in person.",
+          origin: "Stuttering and Tech Blog, March 2025"
+        }
+      ]
     }
   ];
 

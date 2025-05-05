@@ -1,3 +1,4 @@
+
 import React, { useRef, useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import SectionDivider from './SectionDivider';
@@ -5,6 +6,8 @@ import BlogNavigation from './BlogNavigation';
 import GlitchText from './GlitchText';
 import ThemeSelector from './ThemeSelector';
 import { useTheme } from '@/contexts/ThemeContext';
+import TraceMode from './TraceMode';
+import { Book } from 'lucide-react';
 
 interface BlogPostProps {
   title: string;
@@ -14,11 +17,17 @@ interface BlogPostProps {
     id: string;
     title: string;
     body: React.ReactNode;
+    sources?: {
+      title: string;
+      excerpt: string;
+      origin: string;
+    }[];
   }[];
 }
 
 const BlogPost = ({ title, date, author, content }: BlogPostProps) => {
   const [activeSection, setActiveSection] = useState(content[0]?.id || '');
+  const [showTraceMode, setShowTraceMode] = useState(false);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   const { currentTheme } = useTheme();
   
@@ -81,6 +90,14 @@ const BlogPost = ({ title, date, author, content }: BlogPostProps) => {
     }
   };
 
+  const toggleTraceMode = () => {
+    setShowTraceMode(!showTraceMode);
+  };
+
+  const getActiveSection = () => {
+    return content.find(section => section.id === activeSection);
+  };
+
   return (
     <div className={`glitch-container min-h-screen ${currentTheme.name}`}>
       <ThemeSelector />
@@ -104,7 +121,28 @@ const BlogPost = ({ title, date, author, content }: BlogPostProps) => {
         onSectionClick={scrollToSection}
       />
       
-      <main className="container max-w-3xl py-6">
+      <main className="container max-w-3xl py-6 relative">
+        {/* Trace Mode Toggle Button */}
+        <button 
+          onClick={toggleTraceMode}
+          className={`fixed bottom-4 right-4 z-40 p-2 rounded-full ${
+            showTraceMode 
+              ? 'bg-tech-cyan text-tech-black' 
+              : 'bg-tech-dark border border-tech-grey text-tech-cyan'
+          }`}
+          title={showTraceMode ? "Hide X-Ray Mode" : "Show X-Ray Mode"}
+        >
+          <Book size={20} />
+        </button>
+
+        {/* Conditional Trace Mode Overlay */}
+        {showTraceMode && getActiveSection()?.sources && (
+          <TraceMode 
+            sources={getActiveSection()?.sources || []} 
+            sectionId={activeSection}
+          />
+        )}
+
         {content.map((section, index) => (
           <section key={section.id} id={section.id} className="mb-16">
             <h2 className="text-tech-cyan mb-6">{section.title}</h2>
