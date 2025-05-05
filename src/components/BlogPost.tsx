@@ -1,9 +1,10 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import SectionDivider from './SectionDivider';
 import BlogNavigation from './BlogNavigation';
 import GlitchText from './GlitchText';
+import ThemeSelector from './ThemeSelector';
+import { useTheme } from '@/contexts/ThemeContext';
 
 interface BlogPostProps {
   title: string;
@@ -19,6 +20,7 @@ interface BlogPostProps {
 const BlogPost = ({ title, date, author, content }: BlogPostProps) => {
   const [activeSection, setActiveSection] = useState(content[0]?.id || '');
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+  const { currentTheme } = useTheme();
   
   // Set up refs for each section
   useEffect(() => {
@@ -80,7 +82,8 @@ const BlogPost = ({ title, date, author, content }: BlogPostProps) => {
   };
 
   return (
-    <div className="glitch-container min-h-screen">
+    <div className={`glitch-container min-h-screen ${currentTheme.name}`}>
+      <ThemeSelector />
       <div className="mb-12 pt-10">
         <div className="container max-w-4xl">
           <div className="flex flex-col items-center text-center mb-8">

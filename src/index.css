@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;700&family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;500;700&family=Rubik+Glitch&display=swap');
 
 @layer base {
   :root {
@@ -46,6 +46,86 @@
     --sidebar-border: 0 0% 20%;
     --sidebar-ring: 180 90% 70%;
   }
+
+  /* VHS Edition Theme Variables */
+  .vhs-edition {
+    --background: 0 0% 0%;
+    --foreground: 334 100% 55%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 334 100% 55%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 334 100% 55%;
+
+    --primary: 334 100% 55%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 334 100% 35%;
+    --secondary-foreground: 334 100% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 334 50% 70%;
+
+    --accent: 334 100% 25%;
+    --accent-foreground: 334 100% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 334 70% 40%;
+    --input: 334 70% 40%;
+    --ring: 334 100% 55%;
+
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 334 100% 55%;
+    --sidebar-primary: 334 100% 55%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 334 100% 55%;
+    --sidebar-border: 334 70% 40%;
+    --sidebar-ring: 334 100% 55%;
+  }
+
+  /* Digital Garden Theme Variables */
+  .digital-garden {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 322 90% 55%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 120 100% 25%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 142 70% 45%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 142 50% 25%;
+    --input: 142 50% 25%;
+    --ring: 322 90% 55%;
+
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 322 90% 55%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 240 10% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 142 50% 25%;
+    --sidebar-ring: 322 90% 55%;
+  }
 }
 
 @layer base {
@@ -59,8 +139,57 @@
                       url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23333333' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   }
 
+  /* VHS Edition Theme Background */
+  body.vhs-edition {
+    background-image: 
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)),
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 46, 201, 0.15) 0px,
+        rgba(255, 46, 201, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* Digital Garden Theme Background */
+  body.digital-garden {
+    background-image: 
+      linear-gradient(to bottom, rgba(10, 10, 18, 0.9), rgba(7, 7, 15, 1)),
+      radial-gradient(
+        circle at 50% 50%,
+        rgba(51, 255, 102, 0.1) 0%,
+        rgba(255, 46, 201, 0.05) 50%,
+        rgba(10, 10, 18, 1) 100%
+      );
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-display font-bold;
+  }
+
+  /* VHS Edition Typography */
+  .vhs-edition h1, 
+  .vhs-edition h2, 
+  .vhs-edition h3, 
+  .vhs-edition h4, 
+  .vhs-edition h5, 
+  .vhs-edition h6 {
+    font-family: 'Rubik Glitch', cursive;
+    text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff;
+  }
+
+  /* Digital Garden Typography */
+  .digital-garden h1, 
+  .digital-garden h2, 
+  .digital-garden h3, 
+  .digital-garden h4, 
+  .digital-garden h5, 
+  .digital-garden h6 {
+    font-family: 'IBM Plex Mono', monospace;
+    text-shadow: 0 0 10px rgba(255, 46, 201, 0.8);
   }
 
   h1 {
@@ -88,7 +217,8 @@
     overflow: hidden;
   }
 
-  .glitch-container::before {
+  /* Tech-Noir Theme Effects */
+  .tech-noir .glitch-container::before {
     content: '';
     position: absolute;
     top: 0;
@@ -101,14 +231,102 @@
     pointer-events: none;
   }
 
-  .tech-divider {
+  /* VHS Edition Theme Effects */
+  .vhs-edition .glitch-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 46, 201, 0.7);
+    animation: scanline 4s linear infinite;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* Digital Garden Theme Effects */
+  .digital-garden .glitch-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(51, 255, 102, 0.5);
+    animation: scanline 12s linear infinite;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* Tech-Noir Dividers */
+  .tech-noir .tech-divider {
     @apply my-12 relative;
     height: 1px;
     background: linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(95,245,245,0.5) 50%, rgba(10,10,10,1) 100%);
   }
 
-  .tech-divider::before {
+  .tech-noir .tech-divider::before {
     content: "⸻";
     @apply text-tech-cyan absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-tech-black px-4;
+  }
+
+  /* VHS Edition Dividers */
+  .vhs-edition .tech-divider {
+    @apply my-12 relative;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,46,201,0.7) 50%, rgba(0,0,0,1) 100%);
+  }
+
+  .vhs-edition .tech-divider::before {
+    content: "///";
+    @apply text-primary absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-background px-4;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* Digital Garden Dividers */
+  .digital-garden .tech-divider {
+    @apply my-12 relative;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(10,10,18,1) 0%, rgba(51,255,102,0.5) 50%, rgba(10,10,18,1) 100%);
+  }
+
+  .digital-garden .tech-divider::before {
+    content: ">";
+    @apply text-accent absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-background px-4;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* New animations for different themes */
+  @keyframes vhs-glitch {
+    0%, 100% { transform: translate(0); opacity: 1; }
+    10% { transform: translate(-5px, 3px); opacity: 0.8; }
+    20% { transform: translate(5px, -3px); opacity: 0.9; }
+    30% { transform: translate(-3px, -5px); opacity: 0.8; }
+    40% { transform: translate(3px, 5px); opacity: 0.9; }
+    50% { transform: translate(-5px, -2px); opacity: 0.8; }
+    60% { transform: translate(5px, 2px); opacity: 0.9; }
+    70% { transform: translate(-2px, 5px); opacity: 0.8; }
+    80% { transform: translate(2px, -5px); opacity: 0.9; }
+    90% { transform: translate(-1px, -1px); opacity: 0.8; }
+  }
+
+  @keyframes digital-pulse {
+    0%, 100% { text-shadow: 0 0 5px rgba(51, 255, 102, 0.5); }
+    50% { text-shadow: 0 0 15px rgba(51, 255, 102, 0.8), 0 0 25px rgba(51, 255, 102, 0.5); }
+  }
+
+  /* Theme-specific text styling */
+  .vhs-edition .section-content {
+    animation: vhs-glitch 30s infinite;
+  }
+
+  .digital-garden .section-content {
+    border-left: 1px solid rgba(51, 255, 102, 0.3);
+    padding-left: 1rem;
+  }
+
+  .digital-garden h2 {
+    animation: digital-pulse 4s infinite;
   }
 }

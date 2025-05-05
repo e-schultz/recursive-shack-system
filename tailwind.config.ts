@@ -72,12 +72,20 @@ export default {
 					"yellow": "#F5DF4D",
 					"white": "#F5F5F5",
 					"glitch": "#FF00FF",
+					// VHS Edition colors
+					"vhs-pink": "#ff2ec9",
+					"vhs-dark-pink": "#d4007a",
+					// Digital Garden colors  
+					"neon-green": "#33ff66",
+					"neon-pink": "#ff2ec9",
 				}
 			},
 			fontFamily: {
 				mono: ['JetBrains Mono', 'monospace'],
 				sans: ['Inter', 'sans-serif'],
 				display: ['Space Mono', 'monospace'],
+				vhs: ['IBM Plex Mono', 'monospace'],
+				glitch: ['Rubik Glitch', 'cursive'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -104,6 +112,19 @@ export default {
 				'scanline': {
 					'0%': { transform: 'translateY(0)' },
 					'100%': { transform: 'translateY(100%)' },
+				},
+				'vhs-track': {
+					'0%': { transform: 'translateY(-10%)' },
+					'10%': { transform: 'translateY(-8%)' },
+					'20%': { transform: 'translateY(-5%)' },
+					'30%': { transform: 'translateY(-2%)' },
+					'40%': { transform: 'translateY(0%)' },
+					'50%': { transform: 'translateY(2%)' },
+					'60%': { transform: 'translateY(5%)' },
+					'70%': { transform: 'translateY(8%)' },
+					'80%': { transform: 'translateY(10%)' },
+					'90%': { transform: 'translateY(5%)' },
+					'100%': { transform: 'translateY(0%)' },
 				}
 			},
 			animation: {
@@ -111,6 +132,7 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'glitch': 'glitch 0.5s infinite',
 				'scanline': 'scanline 8s linear infinite',
+				'vhs-track': 'vhs-track 4s ease-in-out infinite',
 			}
 		}
 	},
